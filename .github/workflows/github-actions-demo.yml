@@ -15,18 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Display the event that triggered the workflow
-      - name: Display Trigger Event
-        run: echo "The job was triggered by event: ${{ github.event_name }}"
+      - uses: actions/checkout@v4
+    
+      - name: Trigger Event
+        run: echo "The job was triggered by event:${{ github.event_name }}"
 
-      # Display the branch name
-      - name: Display Branch
+      - name: Branch
         run: echo "The name of your branch is ${{ github.ref }} and your repository is ."
 
-      # Checkout the repository
-      - uses: actions/checkout@v3.3.0
-
-      # List files in the repository
       - name: List Files
         run: |
           echo "The repository ${{ github.repository }} contains the following files:"
